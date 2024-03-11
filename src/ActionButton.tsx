@@ -6,7 +6,7 @@ interface props {
 const ActionButton: React.FC<props> = ({ isClicked = false, onClickHandler }) => {
   const size = isClicked ? 40 : 48;
   return (
-    <svg className={`flex ${isClicked ? "p-2 ml-4" : "p-1 ml-5" }  text-center cursor-pointer`} width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none" xmlns="http://www.w3.org/2000/svg"
+    <svg className={`absolute flex ${isClicked ? "p-2 ml-4" : "p-1 ml-5" }  text-center cursor-pointer`} width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none" xmlns="http://www.w3.org/2000/svg"
       onClick={() => {
         onClickHandler();
       }}>

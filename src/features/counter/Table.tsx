@@ -72,11 +72,6 @@ const Table: React.FC<ITableProps> = ({ cols }) => {
       <table className="p-16 border-collapse">
         <thead className="">
         <tr className="" style={{height: '40px'}}>
-          <th
-              className={`absolute right-2 z-20 px-4 py-2 bg-white text-left border-collapse border border-solid`}
-              style={{ width: '100px' }}>
-              Actions
-          </th>
           {cols.map((col) => (
             <Resizable
               key={col.key}
@@ -112,22 +107,28 @@ const Table: React.FC<ITableProps> = ({ cols }) => {
               </th>
             </Resizable>
           ))}      
-          </tr>
+          <th
+              className={`z-20 px-4 py-2 bg-white text-left border-collapse border border-solid`}
+              style={{ width: '100px' }}>
+              Actions
+          </th>
+        </tr>
+        
         </thead>
         <tbody>
           {rowData.map((item, rowIndex) => (
             <tr
               key={item.id}
               className="hover:bg-[#F7F9FC] h-15 border-collapse">
-              <td className={`absolute bg-white test-center right-2 h-15 p-4 z-10 border border-solid`} style={{ width: '100px' }}><ActionsMenu key={`A${item.id}`} currentKey={item.id} menu={MENU_ITEMS}
+              {cols.map((col) => (
+                <td className={` py-2 px-4 border border-solid ${TEXT_ALLIGNMENT[col.type]}`} style={{ width: `${columnWidths[col.key]}px` }}>{item[col.key]}</td>
+              ))}
+              <td className={`bg-white test-center h-15 px-4 z-10 border border-solid`} style={{ width: '100px' }}><ActionsMenu key={`A${item.id}`} currentKey={item.id} menu={MENU_ITEMS}
                 isClicked={item.id === clickedKey}
                 onClickHandler={(key: string) => {
                   key === item.id && key !== clickedKey ? setClickedKey(item.id) :setClickedKey("");    
                 }} />
               </td>
-              {cols.map((col) => (
-                <td className={`p-4 border border-solid ${TEXT_ALLIGNMENT[col.type]}`} style={{ width: `${columnWidths[col.key]}px` }}>{item[col.key]}</td>
-              ))}
             </tr>
           ))}
         </tbody>

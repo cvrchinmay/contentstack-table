@@ -25,7 +25,7 @@ const ActionsMenu: React.FC<props> = ({ menu, currentKey, isClicked, onClickHand
     <Menu as="div" className="relative inline-block text-left z-100">
       <div>
         <Menu.Button className="flex items-center text-gray-400 rounded-full ">
-          {actionType === "filter" ? <FiltersIcon onClickHandler={() => {}}/>: <ActionButton isClicked={isClicked} onClickHandler={() => { onClickHandler(currentKey) }} />}
+          {actionType === "filter" ? <FiltersIcon onClickHandler={() => {}}/> : <ActionButton isClicked={isClicked} onClickHandler={() => { onClickHandler(currentKey) }} />}
         </Menu.Button>
       </div>
 
@@ -38,7 +38,7 @@ const ActionsMenu: React.FC<props> = ({ menu, currentKey, isClicked, onClickHand
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className={`absolute ${actionType === "filter" ? "top-7 -right-20" : "right-0"} z-10 origin-top-right bg-white border border-gray-100 rounded-md shadow-2xl w-52`}>
+        <Menu.Items className={`absolute ${actionType === "filter" ? "top-7 -right-20" : "right-0"} origin-top-right bg-white border border-gray-100 rounded-md shadow-2xl w-52`}>
           <div className="py-1.5">
             {menu.length &&
               menu.map((item) => {
@@ -49,7 +49,7 @@ const ActionsMenu: React.FC<props> = ({ menu, currentKey, isClicked, onClickHand
                         <span
                           className={classNames(
                             active ? "bg-menu-active-bg-color text-gray-900" : "text-gray-700",
-                            "block px-5 py-3 font-normal text-sm cursor-pointer"
+                            "block px-5 py-3 font-normal text-sm cursor-pointer z-100"
                           )}
                         >
                           {item?.menuItem}

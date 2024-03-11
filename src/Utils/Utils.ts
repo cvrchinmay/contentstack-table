@@ -51,7 +51,7 @@ export const COLUMN_CONFIG = [
 {
   key: "noOfActors",
   title: "Actor Count",
-  type: ColumnType.TEXT,
+  type: ColumnType.NUMERIC,
   width: 220
 },
 {
